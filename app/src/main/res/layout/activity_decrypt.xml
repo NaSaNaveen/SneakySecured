@@ -14,21 +14,30 @@
         <EditText
             android:id="@+id/dtext"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/dbutton"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Decrypt"/>
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/dtextview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="ENTER PASSWORD"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/dbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Decrypt" />
 
         <Button
             android:id="@+id/dshare"

@@ -1,5 +1,6 @@
 package com.example.nasa.sneakynotes;
 
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,6 +69,7 @@ public class Encrpyt extends AppCompatActivity {
                 medialfile=new File(mediaStorageDir.getPath()+File.separator+Filename);
 
                 File original_file = medialfile;
+                Toast.makeText(Encrpyt.this,mediaStorageDir.getPath()+File.separator+Filename.toString(), Toast.LENGTH_SHORT).show();
 
                 try {
                     FileWriter writer = new FileWriter(original_file);
@@ -76,6 +78,10 @@ public class Encrpyt extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                Intent i=new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT,encrpttxt.getText().toString());
+                startActivity(Intent.createChooser(i,"SHARE USING"));
             }
         });
 

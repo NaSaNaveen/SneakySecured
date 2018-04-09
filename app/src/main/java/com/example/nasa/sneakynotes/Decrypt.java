@@ -10,16 +10,17 @@ import android.widget.Toast;
 
 public class Decrypt extends AppCompatActivity {
 
-    EditText decrypttext;
+    EditText decrypttext,pass;
     TextView decryptedtext;
     Button decrypt;
+
     String cipherText, plaintext ="" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decrypt);
-
+        pass=(EditText)findViewById(R.id.pass);
         decrypt = (Button)findViewById(R.id.dbutton);
         decryptedtext = (TextView) findViewById(R.id.dtextview);
         decrypttext = (EditText) findViewById(R.id.dtext);
@@ -27,10 +28,21 @@ public class Decrypt extends AppCompatActivity {
         decrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 cipherText = decrypttext.getText().toString();
-                Toast.makeText(Decrypt.this, cipherText, Toast.LENGTH_SHORT).show();
-
-                decrption(cipherText);
+                if(pass.getText().toString().equals(""))
+                {
+                    Toast.makeText(Decrypt.this, "ENTER PASSWORD", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    if(pass.getText().toString().equals("sneaky@123")) {
+                        cipherText = decrypttext.getText().toString();
+                        Toast.makeText(Decrypt.this, cipherText, Toast.LENGTH_SHORT).show();
+                        decrption(cipherText);
+                    }
+                    else{
+                        Toast.makeText(Decrypt.this, "INCORRECT PASSWORD", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
