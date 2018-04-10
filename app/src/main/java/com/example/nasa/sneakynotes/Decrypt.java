@@ -1,5 +1,8 @@
 package com.example.nasa.sneakynotes;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,39 +13,75 @@ import android.widget.Toast;
 
 public class Decrypt extends AppCompatActivity {
 
-    EditText decrypttext,pass;
+    EditText decrypttext;
     TextView decryptedtext;
-    Button decrypt;
+    Button decrypt,share;
 
+    Context context=this;
     String cipherText, plaintext ="" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decrypt);
-        pass=(EditText)findViewById(R.id.pass);
+//        pass=(EditText)findViewById(R.id.pass);
+        share=(Button)findViewById(R.id.dshare);
         decrypt = (Button)findViewById(R.id.dbutton);
         decryptedtext = (TextView) findViewById(R.id.dtextview);
         decrypttext = (EditText) findViewById(R.id.dtext);
 
-        decrypt.setOnClickListener(new View.OnClickListener() {
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pass.getText().toString().equals(""))
-                {
-                    Toast.makeText(Decrypt.this, "ENTER PASSWORD", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    if(pass.getText().toString().equals("sneaky@123")) {
-                        cipherText = decrypttext.getText().toString();
-                        Toast.makeText(Decrypt.this, cipherText, Toast.LENGTH_SHORT).show();
-                        decrption(cipherText);
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT,decryptedtext.getText().toString());
+                startActivity(Intent.createChooser(i,"SHARE USING"));
+            }
+        });
+
+        decrypt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.password);
+
+                final EditText pass = (EditText)dialog.findViewById(R.id.pass);
+                Button done = (Button)dialog.findViewById(R.id.passok);
+
+                done.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        if(pass.getText().toString().equals(""))
+                        {
+                            Toast.makeText(Decrypt.this, "ENTER PASSWORD", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            if(pass.getText().toString().equals("sneaky@123")) {
+                                cipherText = decrypttext.getText().toString();
+//                                Toast.makeText(Decrypt.this, cipherText, Toast.LENGTH_SHORT).show();
+                                if(!cipherText.equals(""))
+                                {
+                                    decrption(cipherText);
+                                }
+                                else
+                                {
+                                    Toast.makeText(Decrypt.this, "Enter Encrypted Text to Decrypt", Toast.LENGTH_SHORT).show();
+                                }
+                                dialog.dismiss();
+                            }
+                            else{
+                                Toast.makeText(Decrypt.this, "INCORRECT PASSWORD", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
-                    else{
-                        Toast.makeText(Decrypt.this, "INCORRECT PASSWORD", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                });
+
+                dialog.show();
             }
         });
     }

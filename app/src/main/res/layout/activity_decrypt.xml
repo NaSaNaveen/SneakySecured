@@ -7,44 +7,70 @@
     tools:context="com.example.nasa.sneakynotes.Decrypt">
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/dtext"
+        <ScrollView
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content">
+
+                <EditText
+                    android:hint="Enter Text To Be Decrypted"
+                    android:id="@+id/dtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                </EditText>
+
+        </ScrollView>
 
         <TextView
+            android:hint="Decrypted Text Appears Here"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
             android:id="@+id/dtextview"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <EditText
-            android:id="@+id/pass"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="ENTER PASSWORD"
-            android:inputType="textPassword" />
+        <!--<EditText-->
+            <!--android:id="@+id/pass"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="3dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:hint="ENTER PASSWORD"-->
+            <!--android:inputType="textPassword" />-->
 
-        <Button
-            android:id="@+id/dbutton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Decrypt" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/dshare"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="share"/>
+            <Button
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/whitebg"
+                android:background="@drawable/sharebutton"
+                android:id="@+id/dshare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="share"/>
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonbg"
+                android:textColor="@color/whitebg"
+                android:id="@+id/dbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Decrypt" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

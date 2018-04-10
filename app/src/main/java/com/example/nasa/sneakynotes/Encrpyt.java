@@ -22,10 +22,9 @@ public class Encrpyt extends AppCompatActivity {
 
     EditText editing;
     EditText encrpttxt;
-    Button encrypt,share;
+    Button encrypt,share,decbutton;
 
     String plaintext , ciphertext;
-
 
 
     @Override
@@ -36,17 +35,24 @@ public class Encrpyt extends AppCompatActivity {
         editing = (EditText)findViewById(R.id.etext);
         encrpttxt = (EditText)findViewById(R.id.etextview);
 
+        decbutton=(Button)findViewById(R.id.decryptbutton);
         encrypt = (Button)findViewById(R.id.ebutton);
         share = (Button)findViewById(R.id.eshare);
 
 
+        decbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Encrpyt.this,Decrypt.class);
+                startActivity(i);
+            }
+        });
 
         encrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 plaintext = editing.getText().toString();
                 Toast.makeText(Encrpyt.this, plaintext, Toast.LENGTH_SHORT).show();
-
                 encrypt(plaintext);
             }
         });
@@ -54,7 +60,6 @@ public class Encrpyt extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 File mediaStorageDir= new File(Environment.getExternalStorageDirectory()+"/SneakySecured/");
                 if(!mediaStorageDir.exists()){
@@ -69,7 +74,7 @@ public class Encrpyt extends AppCompatActivity {
                 medialfile=new File(mediaStorageDir.getPath()+File.separator+Filename);
 
                 File original_file = medialfile;
-                Toast.makeText(Encrpyt.this,mediaStorageDir.getPath()+File.separator+Filename.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Encrpyt.this,mediaStorageDir.getPath()+File.separator+Filename.toString(), Toast.LENGTH_SHORT).show();
 
                 try {
                     FileWriter writer = new FileWriter(original_file);
