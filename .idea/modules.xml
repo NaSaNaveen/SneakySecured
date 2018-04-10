@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\Naveen\SneakySecured\SneakyNotes.iml" filepath="D:\Naveen\SneakySecured\SneakyNotes.iml" />
       <module fileurl="file://$PROJECT_DIR$/SneakySecured.iml" filepath="$PROJECT_DIR$/SneakySecured.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

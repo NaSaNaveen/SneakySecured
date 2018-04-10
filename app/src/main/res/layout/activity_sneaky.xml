@@ -4,23 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whitebg"
     tools:context="com.example.nasa.sneakynotes.Sneaky">
 
     <LinearLayout
+        android:layout_margin="20dp"
+        android:padding="20dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_marginBottom="30dp"
+            android:layout_width="270dp"
+            android:layout_height="250dp"
+            android:background="@drawable/lock"/>
+
         <Button
+            android:textColor="@color/whitebg"
+            android:textSize="20dp"
+            android:background="@drawable/buttonbg"
             android:id="@+id/encrypt"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Encrypt"/>
 
         <Button
+            android:textColor="@color/whitebg"
+            android:textSize="20dp"
+            android:background="@drawable/buttonbg"
+            android:layout_marginTop="30dp"
             android:id="@+id/decrypt"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Decrypt"/>
 
