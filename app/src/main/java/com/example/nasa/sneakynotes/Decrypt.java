@@ -33,10 +33,16 @@ public class Decrypt extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_TEXT,decryptedtext.getText().toString());
-                startActivity(Intent.createChooser(i,"SHARE USING"));
+                if(decryptedtext.getText().toString().equals("")){
+                    Toast.makeText(context, "THERE IS NO DECRYPTED TEXT", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_TEXT,decryptedtext.getText().toString());
+                    startActivity(Intent.createChooser(i,"SHARE USING"));
+                }
+
             }
         });
 

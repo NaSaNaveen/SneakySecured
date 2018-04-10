@@ -8,9 +8,11 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class Sneaky extends AppCompatActivity
 {
-    Button e,d;
+    GifImageView e,d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,8 +20,8 @@ public class Sneaky extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sneaky);
 
-        e=(Button)findViewById(R.id.encrypt);
-        d=(Button)findViewById(R.id.decrypt);
+        e=(GifImageView) findViewById(R.id.gifImageView);
+        d=(GifImageView) findViewById(R.id.gifImageView2);
 
         Frequency_values.freq.put("l",23618);
         Frequency_values.freq.put("f",25392);

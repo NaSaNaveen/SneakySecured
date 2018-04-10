@@ -15,7 +15,9 @@
         <ScrollView
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/boxshape"
+            >
 
                 <EditText
                     android:hint="Enter Text To Be Decrypted"
@@ -31,6 +33,8 @@
             android:hint="Decrypted Text Appears Here"
             android:layout_margin="10dp"
             android:textSize="20sp"
+            android:background="@drawable/boxshape"
+
             android:id="@+id/dtextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

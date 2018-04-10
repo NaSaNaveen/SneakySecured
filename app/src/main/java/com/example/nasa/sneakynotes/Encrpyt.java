@@ -51,42 +51,54 @@ public class Encrpyt extends AppCompatActivity {
         encrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                plaintext = editing.getText().toString();
-                Toast.makeText(Encrpyt.this, plaintext, Toast.LENGTH_SHORT).show();
-                encrypt(plaintext);
+                if(editing.getText().toString().equals("")){
+                    Toast.makeText(Encrpyt.this, "THERE IS NO TEXT", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    plaintext = editing.getText().toString();
+                    Toast.makeText(Encrpyt.this, plaintext, Toast.LENGTH_SHORT).show();
+                    encrypt(plaintext);
+                }
+
             }
         });
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                File mediaStorageDir= new File(Environment.getExternalStorageDirectory()+"/SneakySecured/");
-                if(!mediaStorageDir.exists()){
-                    if(!mediaStorageDir.mkdirs()){
-                        System.out.println("BOw");
-                    }
+                if(encrpttxt.getText().toString().equals(""))
+                {
+                    Toast.makeText(Encrpyt.this, "THERE IS NO ENCRYPTED TEXT", Toast.LENGTH_SHORT).show();
                 }
-                String timestamp=new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date()) ;
+                else {
+                    File mediaStorageDir = new File(Environment.getExternalStorageDirectory() + "/SneakySecured/");
+                    if (!mediaStorageDir.exists()) {
+                        if (!mediaStorageDir.mkdirs()) {
+                            System.out.println("BOw");
+                        }
+                    }
+                    String timestamp = new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date());
 
-                File medialfile;
-                String Filename= "SS_"+timestamp+".txt";
-                medialfile=new File(mediaStorageDir.getPath()+File.separator+Filename);
+                    File medialfile;
+                    String Filename = "SS_" + timestamp + ".txt";
+                    medialfile = new File(mediaStorageDir.getPath() + File.separator + Filename);
 
-                File original_file = medialfile;
+                    File original_file = medialfile;
 //                Toast.makeText(Encrpyt.this,mediaStorageDir.getPath()+File.separator+Filename.toString(), Toast.LENGTH_SHORT).show();
 
-                try {
-                    FileWriter writer = new FileWriter(original_file);
-                    writer.write(ciphertext);
-                    writer.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    try {
+                        FileWriter writer = new FileWriter(original_file);
+                        writer.write(ciphertext);
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_TEXT, encrpttxt.getText().toString());
+                    startActivity(Intent.createChooser(i, "SHARE USING"));
+
                 }
-                Intent i=new Intent(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_TEXT,encrpttxt.getText().toString());
-                startActivity(Intent.createChooser(i,"SHARE USING"));
             }
         });
 
