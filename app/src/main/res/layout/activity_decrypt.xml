@@ -13,13 +13,14 @@
         android:orientation="vertical">
 
         <ScrollView
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/boxshape"
-            >
+            android:background="@drawable/boxshape">
 
                 <EditText
+                    android:layout_margin="10dp"
                     android:hint="Enter Text To Be Decrypted"
                     android:id="@+id/dtext"
                     android:layout_width="match_parent"
@@ -30,11 +31,11 @@
         </ScrollView>
 
         <TextView
+            android:padding="10dp"
             android:hint="Decrypted Text Appears Here"
-            android:layout_margin="10dp"
+            android:layout_margin="0dp"
             android:textSize="20sp"
             android:background="@drawable/boxshape"
-
             android:id="@+id/dtextview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

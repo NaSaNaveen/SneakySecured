@@ -23,6 +23,7 @@
         android:orientation="vertical" >
 
         <EditText
+            android:layout_margin="10dp"
             android:hint="Enter Your Text to be Encrypted"
             android:id="@+id/etext"
             android:layout_width="match_parent"
@@ -47,13 +48,13 @@
                 android:orientation="vertical" >
 
                 <EditText
+                    android:layout_margin="10dp"
                     android:hint="Encrypted Text Appears here"
                     android:id="@+id/etextview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                 </EditText>
-
             </LinearLayout>
 
         </ScrollView>
