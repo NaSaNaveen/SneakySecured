@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-SneakySecured.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-SneakySecured.iml" />
       <module fileurl="file://$PROJECT_DIR$/SneakySecured.iml" filepath="$PROJECT_DIR$/SneakySecured.iml" />
       <module fileurl="file://F:\SneakySecured\SneakySecured.iml" filepath="F:\SneakySecured\SneakySecured.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/SneakySecured-app.iml" filepath="$PROJECT_DIR$/app/SneakySecured-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://F:\SneakySecured\app\app.iml" filepath="F:\SneakySecured\app\app.iml" />
     </modules>
